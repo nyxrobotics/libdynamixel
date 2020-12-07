@@ -6,3 +6,15 @@ set(CMAKE_CXX_FLAGS "-D_REENTRANT -Wall -finline-functions -Wno-inline  -fPIC -O
 
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/src/tools)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/src/demos)
+
+file(GLOB INSTALL_FILES_1 "./src/dynamixel/*/**")
+file(GLOB INSTALL_FILES_2 "./src/dynamixel/*.hpp")
+
+INSTALL(FILES
+	${INSTALL_FILES_1}
+	DESTINATION
+	conf PERMISSIONS OWNER_READ GROUP_READ WORLD_READ)
+INSTALL(FILES
+	${INSTALL_FILES_2}
+	DESTINATION
+	conf PERMISSIONS OWNER_READ GROUP_READ WORLD_READ)
